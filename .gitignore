@@ -1,0 +1,31 @@
+﻿# Binarios y compilación
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.runtimeconfig.json
+
+# Archivos de desarrollo
+.vs/
+.vscode/extensions.json
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Entornos
+.env
+secrets.json
+
+# Base de datos SQLite
+*.db
+*.sqlite
+
+# Logs
+logs
+*.log
+
+# Sistema
+Thumbs.db
+.DS_Store
