@@ -53,7 +53,7 @@ namespace Academia_Central.Api.Controllers
             bool tienePendientes = await _bibliotecaService.TienePrestamosPendientes(alumno.Matricula);
             if (tienePendientes){
                 // Forbid() devuelve código HTTP 403 - acción prohibida
-                return Forbid("No se puede matricular: tiene préstamos pendientes en la biblioteca.");}
+                return StatusCode(403, "No se puede matricular: tiene préstamos pendientes en la biblioteca.");}
 
             // 5. Crear nueva matrícula
             var matricula = new Matricula
@@ -62,7 +62,8 @@ namespace Academia_Central.Api.Controllers
                 CarreraId = carrera.Id,
                 PeriodoAcademico = request.PeriodoAcademico,
                 FechaInicioVigencia = DateTime.Now,
-                FechaFinVigencia = DateTime.Now.AddMonths(6), // Ej: semestre
+                //FechaFinVigencia = DateTime.Now.AddMonths(4), 
+                FechaFinVigencia = DateTime.Now.AddSeconds(10), // Para una prueba rapida, (profe si ve esto pongame un 10)
                 Estado = "Vigente"
             };
             // Guarda la matrícula en la base de datos

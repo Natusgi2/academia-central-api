@@ -3,6 +3,7 @@ using Academia_Central.Api.Data;
 using Academia_Central.Api.Services;
 using Academia_Central.Api.Services.Implementations;
 using Academia_Central.Api.Models;
+using Academia_Central.Api.Services.Background;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IAlumnoService, AlumnoService>();
 builder.Services.AddScoped<IMatriculaService, MatriculaService>();
 builder.Services.AddScoped<ICarreraService, CarreraService>();
 builder.Services.AddScoped<IBibliotecaService, BibliotecaService>();
+builder.Services.AddHostedService<MatriculaCleanupService>();
 
 // ⚠️ CORRECCIÓN CRÍTICA: HttpClient para BibliotecaService
 builder.Services.AddHttpClient<IBibliotecaService, BibliotecaService>((serviceProvider, client) =>

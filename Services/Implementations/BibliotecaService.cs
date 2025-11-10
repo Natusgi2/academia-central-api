@@ -21,6 +21,8 @@ namespace Academia_Central.Api.Services.Implementations
             _httpClient = httpClient;
             _config = config.Value;
             _logger = logger;
+
+            Console.WriteLine($"[CONFIG TEST] API ID: {_config.Id}, Nombre: {_config.Nombre}");
         }
         // Verifica si un alumno tiene préstamos pendientes en la biblioteca
         public async Task<bool> TienePrestamosPendientes(string matricula)
